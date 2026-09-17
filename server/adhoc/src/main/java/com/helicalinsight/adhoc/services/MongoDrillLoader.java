@@ -19,9 +19,15 @@ import java.util.List;
 /**
  * @author Somen
  * Created on 11/15/2017.
+ * <p>
+ * Superseded by {@link MongoNativeLoader}, which connects to MongoDB directly instead of
+ * proxying through an external Apache Drill "mongo" storage plugin. The
+ * {@code com.helicalinsight.nosql.mongo} bean name now points at that native implementation.
+ * This class is kept, under a distinct bean name, only for installations that already have
+ * Drill configured and depend on this exact code path.
  */
 
-@Component("com.helicalinsight.nosql.mongo")
+@Component("com.helicalinsight.nosql.mongo.drill")
 @Scope("prototype")
 @Deprecated
 public class MongoDrillLoader extends NoSQLLoader {
